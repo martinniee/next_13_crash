@@ -1,3 +1,6 @@
+export const metadata = {
+	title: 'About traversy media'
+};
 const AboutPage = () => {
 	return (
 		<div>
