@@ -1,6 +1,7 @@
 // 1.从 nextjs 内置字体引入 google font
 import { Poppins } from 'next/font/google';
 import './globals.css';
+import Header from './components/Header';
 
 // 2.创建一个字体对象
 const poppins = Poppins({
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
 		<html lang='en'>
 			{/* 3.从配置对象中获取类名用于应用到字体上 */}
 			<body className={poppins.className}>
+				<Header />
 				<main className='container'>{children}</main>
 			</body>
 		</html>
