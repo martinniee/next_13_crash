@@ -1,7 +1,12 @@
-import { Inter } from 'next/font/google';
+// 1.从 nextjs 内置字体引入 google font
+import { Poppins } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+// 2.创建一个字体对象
+const poppins = Poppins({
+	weight: ['400', '700'],
+	subsets: ['latin']
+});
 
 export const metadata = {
 	title: 'Traversy Media',
@@ -12,7 +17,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>{children}</body>
+			{/* 3.从配置对象中获取类名用于应用到字体上 */}
+			<body className={poppins.className}>
+				<main className='container'>{children}</main>
+			</body>
 		</html>
 	);
 }
