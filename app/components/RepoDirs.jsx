@@ -6,7 +6,13 @@ async function fetchRepoContents(name) {
 	});
 
 	const response = await fetch(
-		`https://api.github.com/repos/bradtraversy/${name}/contents`
+		`https://api.github.com/repos/bradtraversy/${name}/contents`,
+		{
+			// 用于处理经常 请求的数据
+			next: {
+				revalidate: 60
+			}
+		}
 	);
 	const contents = await response.json();
 	return contents;

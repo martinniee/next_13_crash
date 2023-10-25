@@ -5,7 +5,13 @@ import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa';
 async function fetchRepos() {
 	// 1.使用 fetch api 获取数据
 	const response = await fetch(
-		'https://api.github.com/users/bradtraversy/repos'
+		'https://api.github.com/users/bradtraversy/repos',
+		{
+			// 用于处理经常 请求的数据
+			next: {
+				revalidate: 60
+			}
+		}
 	);
 
 	// 等待 1s
