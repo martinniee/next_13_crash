@@ -7,6 +7,12 @@ async function fetchRepos() {
 	const response = await fetch(
 		'https://api.github.com/users/bradtraversy/repos'
 	);
+
+	// 等待 1s
+	await new Promise((resolve) => {
+		setTimeout(resolve, 1000);
+	});
+
 	// 2.解析为 json 格式
 	const repos = await response.json();
 	return repos;
