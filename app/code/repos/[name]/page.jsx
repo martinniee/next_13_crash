@@ -1,11 +1,16 @@
-import React from 'react';
+import Link from 'next/link';
+import Repo from '@/app/components/Repo';
+import RepoDirs from '@/app/components/RepoDirs';
 
 // 在 Dynamic route 组件中获取 路由路径 参数
 const RepoPage = ({ params: { name } }) => {
 	return (
 		<div className='card'>
-			<h2>{name}</h2>
-			<p>Repo Details</p>
+			<Link href='/code/repos' className='btn btn-back'>
+				Back to Respositories
+			</Link>
+			<Repo name={name} />
+			<RepoDirs name={name} />
 		</div>
 	);
 };
