@@ -9,8 +9,8 @@ export async function GET(request) {
 	const query = searchParams.get('query');
 
 	// 3.忽略大小写过滤出结果
-	const filteredCourses = courses.filter(
-		(course = course.title.toLowerCase().includes(query.toLowerCase()))
+	const filteredCourses = courses.filter((course) =>
+		course.title.toLowerCase().includes(query.toLowerCase())
 	);
 	return NextResponse.json(filteredCourses);
 }
